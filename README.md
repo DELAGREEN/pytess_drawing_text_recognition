@@ -1,0 +1,1 @@
+# pytess_drawing_text_recognition
