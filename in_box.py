@@ -31,7 +31,7 @@ def convert_pdf_to_tiff(path):
         mask[y:y+h, x:x+w] = 255
     
     # Применяем морфологические операции для объединения близко расположенных текстовых блоков
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (40, 30))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (80, 40))
     dilated = cv2.dilate(mask, kernel, iterations=1)
     
     # Находим контуры объединенных блоков
@@ -49,7 +49,7 @@ def convert_pdf_to_tiff(path):
     cv2.imwrite('text_detection_combined.png', img_rgb)
     cv2.waitKey(0)
 
-path = '/home/nzxt/rep/drawing_text_recognition/pdf/F127965467_0.prt.pdf'
+path = '/home/nzxt/rep/pytess_drawing_text_recognition/pdf/КЛАБ.301329.369СБ_197011108.dwg.pdf'
 convert_pdf_to_tiff(path)
 
 end = datetime.datetime.now()
